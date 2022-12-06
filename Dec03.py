@@ -87,7 +87,7 @@ RucksacksGrouped = Rucksacks2[["GroupID", "Items"]].groupby(
 # group has its own column
 RucksacksGrouped[["Elf1", "Elf2", "Elf3"]] = RucksacksGrouped["Items"].str.split("_", 2, expand=True)
 
-# check which (case-specific) character appears in both compartments
+# check which (case-specific) character appears for all three elves
 RucksacksGrouped["CommonItem"] = [set(a).intersection(b, c)
                                   for a, b, c in zip(RucksacksGrouped.Elf1,
                                                      RucksacksGrouped.Elf2,
